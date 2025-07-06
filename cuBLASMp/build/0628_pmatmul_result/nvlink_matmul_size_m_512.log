@@ -1,0 +1,505 @@
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO PE distribution has been identified as NVSHMEMI_PE_DIST_BLOCK
+NVSHMEM configuration:
+  CUDA API                     12080
+  CUDA Runtime                 12080
+  CUDA Driver                  12040
+  Build Timestamp              Jun 13 2025 16:51:52
+  Build Variables             
+	NVSHMEM_DEBUG=OFF NVSHMEM_DEVEL=OFF NVSHMEM_DEFAULT_PMI2=OFF
+	NVSHMEM_DEFAULT_PMIX=OFF NVSHMEM_DEFAULT_UCX=OFF
+	NVSHMEM_ENABLE_ALL_DEVICE_INLINING=OFF NVSHMEM_GPU_COLL_USE_LDST=OFF
+	NVSHMEM_IBGDA_SUPPORT=ON NVSHMEM_IBGDA_SUPPORT_GPUMEM_ONLY=OFF
+	NVSHMEM_IBDEVX_SUPPORT=ON NVSHMEM_IBRC_SUPPORT=ON NVSHMEM_LIBFABRIC_SUPPORT=ON
+	NVSHMEM_MPI_SUPPORT=ON NVSHMEM_NVTX=ON NVSHMEM_PMIX_SUPPORT=ON
+	NVSHMEM_SHMEM_SUPPORT=ON NVSHMEM_TEST_STATIC_LIB=OFF
+	NVSHMEM_TIMEOUT_DEVICE_POLLING=OFF NVSHMEM_TRACE=OFF NVSHMEM_UCX_SUPPORT=ON
+	NVSHMEM_USE_DLMALLOC=OFF NVSHMEM_USE_NCCL=ON NVSHMEM_USE_GDRCOPY=ON
+	NVSHMEM_VERBOSE=OFF
+	CUDA_HOME=/dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/build/cuda
+	GDRCOPY_HOME=/dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/gdrcopy_build
+	LIBFABRIC_HOME=/data/tmp/libfabric_install MPI_HOME=/data/tmp/openmpi_install
+	NCCL_HOME=/dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/nccl/build
+	NVSHMEM_PREFIX=/dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/install
+	PMIX_HOME=/data/tmp/pmix_install SHMEM_HOME=/data/tmp/openmpi_install
+	UCX_HOME=/dvs/p4/build/sw/gpgpu/openucx/build
+
+Standard options:
+  NVSHMEM_VERSION              false (type: bool, default: false)
+	Print library version at startup
+  NVSHMEM_INFO                 true (type: bool, default: false)
+	Print environment variable options at startup
+  NVSHMEM_DISABLE_NVLS         false (type: bool, default: false)
+	Disable NVLS SHARP resources for collectives, even if available for platform
+  NVSHMEM_SYMMETRIC_SIZE       1073741824 (type: size, default: 1073741824)
+	Specifies the size (in bytes) of the symmetric heap memory per PE. The
+	size is implementation-defined and must be at least as large as the integer
+	ceiling of the product of the numeric prefix and the scaling factor. The
+	character suffixes for the scaling factor are as follows:
+	
+	  *  k or K multiplies by 2^10 (kibibytes)
+	  *  m or M multiplies by 2^20 (mebibytes)
+	  *  g or G multiplies by 2^30 (gibibytes)
+	  *  t or T multiplies by 2^40 (tebibytes)
+	
+	For example, string '20m' is equivalent to the integer value 20971520, or 20
+	mebibytes. Similarly the string '3.1M' is equivalent to the integer value
+	3250586. Only one multiplier is recognized and any characters following the
+	multiplier are ignored, so '20kk' will not produce the same result as '20m'.
+	Usage of string '.5m' will yield the same result as the string '0.5m'.
+	An invalid value for NVSHMEM_SYMMETRIC_SIZE is an error, which the NVSHMEM
+	library shall report by either returning a nonzero value from
+	nvshmem_init_thread or causing program termination.
+  NVSHMEM_DEBUG                "true" (type: string, default: "")
+	Set to enable debugging messages.
+	Optional values: VERSION, WARN, INFO, ABORT, TRACE
+
+Bootstrap options:
+  NVSHMEM_BOOTSTRAP            "PMI" (type: string, default: "PMI")
+	Name of the default bootstrap that should be used to initialize NVSHMEM.
+	Allowed values: PMI, MPI, SHMEM, plugin, UID
+  NVSHMEM_BOOTSTRAP_PMI        "PMI" (type: string, default: "PMI")
+	Name of the PMI bootstrap that should be used to initialize NVSHMEM.
+	Allowed values: PMI, PMI-2, PMIX
+  NVSHMEM_BOOTSTRAP_PLUGIN     "" (type: string, default: "")
+	Absolute path to or name of the bootstrap plugin file to load when
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO PE distribution has been identified as NVSHMEMI_PE_DIST_BLOCK
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO PE 2 (process) affinity to 2 CPUs:
+     1 65 
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO cudaDriverVersion 12040
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEM symmetric heap kind = DEVICE selected
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] nvshmemi_get_cucontext->cuCtxSynchronize->CUDA_SUCCESS) my_stream (nil)
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO in get_cucontext, queried and saved context for device: 2 context: 0x649c1e572d80
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO PE distribution has been identified as NVSHMEMI_PE_DIST_BLOCK
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO PE 1 (process) affinity to 2 CPUs:
+    32 96 
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO cudaDriverVersion 12040
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEM symmetric heap kind = DEVICE selected
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] nvshmemi_get_cucontext->cuCtxSynchronize->CUDA_SUCCESS) my_stream (nil)
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO in get_cucontext, queried and saved context for device: 1 context: 0x59b51845baf0
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO PE distribution has been identified as NVSHMEMI_PE_DIST_BLOCK
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO PE 3 (process) affinity to 2 CPUs:
+    33 97 
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO cudaDriverVersion 12040
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEM symmetric heap kind = DEVICE selected
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] nvshmemi_get_cucontext->cuCtxSynchronize->CUDA_SUCCESS) my_stream (nil)
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO in get_cucontext, queried and saved context for device: 3 context: 0x5b7014930990
+	NVSHMEM_BOOTSTRAP=plugin is specified
+  NVSHMEM_BOOTSTRAP_MPI_PLUGIN "nvshmem_bootstrap_mpi.so.3" (type: string, default: "nvshmem_bootstrap_mpi.so.3")
+	Absolute path to or name of the MPI bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+  NVSHMEM_BOOTSTRAP_SHMEM_PLUGIN "nvshmem_bootstrap_shmem.so.3" (type: string, default: "nvshmem_bootstrap_shmem.so.3")
+	Absolute path to or name of the SHMEM bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+  NVSHMEM_BOOTSTRAP_PMI_PLUGIN "nvshmem_bootstrap_pmi.so.3" (type: string, default: "nvshmem_bootstrap_pmi.so.3")
+	Absolute path to or name of the PMI bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+  NVSHMEM_BOOTSTRAP_PMI2_PLUGIN "nvshmem_bootstrap_pmi2.so.3" (type: string, default: "nvshmem_bootstrap_pmi2.so.3")
+	Absolute path to or name of the PMI-2 bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+  NVSHMEM_BOOTSTRAP_PMIX_PLUGIN "nvshmem_bootstrap_pmix.so.3" (type: string, default: "nvshmem_bootstrap_pmix.so.3")
+	Absolute path to or name of the PMIx bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+  NVSHMEM_BOOTSTRAP_UID_PLUGIN "nvshmem_bootstrap_uid.so.3" (type: string, default: "nvshmem_bootstrap_uid.so.3")
+	Absolute path to or name of the UID bootstrap plugin file. 
+	NVSHMEM will search for the plugin based on linux linker priorities. See man
+	dlopen
+
+Additional options:
+  NVSHMEM_CUDA_PATH            "" (type: string, default: "")
+	Path to directory containing libcuda.so (for use when not in default location)
+  NVSHMEM_DEBUG_ATTACH_DELAY   0 (type: int, default: 0)
+	Delay (in seconds) during the first call to NVSHMEM_INIT to allow for attaching
+	a debuggger (Default 0)
+  NVSHMEM_DEBUG_FILE           "" (type: string, default: "")
+	Debugging output filename, may contain %h for hostname and %p for pid
+  NVSHMEM_G_COALESCING_BUF_SIZE 2097152 (type: int, default: 2097152)
+	Size of buffer used for coalescing shmem_g operations. Must be a multiple of
+	256B (32 * 8).
+  NVSHMEM_G_BUF_SIZE           8388608 (type: int, default: 8388608)
+	Size of the g_buf to perform shmem_g operations in parallel. Must be a multiple
+	of 8B.
+  NVSHMEM_MAX_TEAMS            32 (type: long, default: 32)
+	Maximum number of simultaneous teams allowed
+  NVSHMEM_MAX_MEMORY_PER_GPU   137438953472 (type: size, default: 137438953472)
+	Maximum memory per GPU
+  NVSHMEM_DISABLE_CUDA_VMM     false (type: bool, default: false)
+	Disable use of CUDA VMM for P2P memory mapping. By default, CUDA VMM is enabled
+	on x86 and disabled on P9. CUDA VMM feature in NVSHMEM requires CUDA RT version
+	and CUDA Driver version to be greater than or equal to 11.3.
+  NVSHMEM_DISABLE_P2P          false (type: bool, default: false)
+	Disable P2P connectivity of GPUs even when available
+  NVSHMEM_IGNORE_CUDA_MPS_ACTIVE_THREAD_PERCENTAGE false (type: bool, default: false)
+	When doing Multi-Process Per GPU (MPG) run, full API support is available only
+	if sum of CUDA_MPS_ACTIVE_THREAD_PERCENTAGE of processes running on a GPU is <=
+	100%. Through this variable, user can request NVSHMEM runtime to ignore the
+	active thread percentage and allow full MPG support. Users enable it at their
+	own risk as NVSHMEM might deadlock.
+  NVSHMEM_CUMEM_GRANULARITY    536870912 (type: size, default: 536870912)
+	Granularity for cuMemAlloc/cuMemCreate
+  NVSHMEM_PROXY_REQUEST_BATCH_MAX 32 (type: int, default: 32)
+	Maxmum number of requests that the proxy thread processes in a single iteration
+	of the progress loop.
+
+Collectives options:
+  NVSHMEM_DISABLE_NCCL         false (type: bool, default: false)
+	Disable use of NCCL for collective operations
+  NVSHMEM_BARRIER_DISSEM_KVAL  2 (type: int, default: 2)
+	Radix of the dissemination algorithm used for barriers
+  NVSHMEM_BARRIER_TG_DISSEM_KVAL 2 (type: int, default: 2)
+	Radix of the dissemination algorithm used for56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] Created stream 0x649c23306d90 for device 2
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO CUDA 64-bit stream memops support is not available
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVML library found. libnvidia-ml.so.1
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] Created stream 0x5b70196bf2d0 for device 3
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO CUDA 64-bit stream memops support is not available
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVML library found. libnvidia-ml.so.1
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] Created stream 0x59b51d20b9d0 for device 1
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO CUDA 64-bit stream memops support is not available
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVML library found. libnvidia-ml.so.1
+ thread group barriers
+  NVSHMEM_FCOLLECT_LL_THRESHOLD 2048 (type: size, default: 2048)
+	Message size threshold up to which fcollect LL algo will be used
+	
+  NVSHMEM_REDUCE_SCRATCH_SIZE  524288 (type: size, default: 524288)
+	Amount of symmetric heap memory (minimum 16B, multiple of 8B) reserved by
+	runtime for every team to implement reduce and reducescatter collectives
+	
+  NVSHMEM_BCAST_ALGO           0 (type: int, default: 0)
+	Broadcast algorithm to be used.
+	  * 0 - use default algorithm selection strategy
+	
+  NVSHMEM_REDMAXLOC_ALGO       1 (type: int, default: 1)
+	Reduction algorithm to be used for MAXLOC operation.
+	  * 1 - default, flag alltoall algorithm
+	  * 2 - flat reduce + flat bcast
+	  * 3 - topo-aware two-level reduce + topo-aware bcast
+	
+
+Transport options:
+  NVSHMEM_REMOTE_TRANSPORT     "ibrc" (type: string, default: "ibrc")
+	Selected transport for remote operations: ibrc, ucx, libfabric, ibdevx, none
+  NVSHMEM_ENABLE_NIC_PE_MAPPING false (type: bool, default: false)
+	When not set or set to 0, a PE is assigned the NIC on the node that is closest
+	to it by distance. When set to 1, NVSHMEM either assigns NICs to PEs on a
+	round-robin basis or uses NVSHMEM_HCA_PE_MAPPING or NVSHMEM_HCA_LIST when they
+	are specified.
+  NVSHMEM_DISABLE_LOCAL_ONLY_PROXY false (type: bool, default: false)
+	When running on an NVLink-only configuaration (No-IB, No-UCX), completely
+	disable the proxy thread. This will disable device side global exit and device
+	side wait timeout polling (enabled by NVSHMEM_TIMEOUT_DEVICE_POLLING build-time
+	variable) because these are processed by the proxy thread.
+  NVSHMEM_IB_ENABLE_IBGDA      false (type: bool, default: false)
+	Set to enable GPU-initiated communication transport.
+
+NVTX options:
+  NVSHMEM_NVTX                 "off" (type: string, default: "off")
+	Set to enable NVTX instrumentation. Accepts a comma separated list of
+	instrumentation groups. By default the NVTX instrumentation is disabled.
+	  init                : library setup
+	  alloc               : memory management
+	  launch              : kernel launch routines
+	  coll                : collective communications
+	  wait                : blocking point-to-point synchronization
+	  wait_on_stream      : point-to-point synchronization (on stream)
+	  test                : non-blocking point-to-point synchronization
+	  memorder            : memory ordering (quiet, fence)
+	  quiet_on_stream     : nvshmemx_quiet_on_stream
+	  atomic_fetch        : fetching atomic memory operations
+	  atomic_set          : non-fetchong atomic memory operations
+	  rma_blocking        : blocking remote memory access operations
+	  rma_nonblocking     : non-blocking remote memory access operations
+	  proxy               : activity of the proxy thread
+	  common              : init,alloc,launch,coll,memorder,wait,atomic_fetch,rma_blocking,proxy
+	  all                 : all groups
+	  off                 : disable all NVTX instrumentation
+
+Bootstrap Options:
+  NVSHMEM_BOOTSTRAP_UID_SOCK_IFNAME "" (type: string, default: "")
+	Name of the UID bootstrap socket interface name
+  NVSHMEM_BOOTSTRAP_UID_SOCK_FAMILY "AF_INET" (type: string, default: "AF_INET")
+	Name of the UID bootstrap socket family name
+  NVSHMEM_BOOTSTRAP_UID_SESSION_ID "" (type: string, default: "")
+	Name of the UID bootstrap session identifier
+
+Common Options:
+  NVSHMEM_DEBUG                "true" (type: string, default: "")
+	Set to enable debugging messages.
+	Optional values: VERSION, WARN, INFO, ABORT, TRACE
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO PE 0 (process) affinity to 2 CPUs:
+     0 64 
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO cudaDriverVersion 12040
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEM symmetric heap kind = DEVICE selected
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] nvshmemi_get_cucontext->cuCtxSynchronize->CUDA_SUCCESS) my_stream (nil)
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO in get_cucontext, queried and saved context for device: 0 context: 0x647f6cb49ff0
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] Created stream 0x647f718df490 for device 0
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO CUDA 64-bit stream memops support is not available
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVML library found. libnvidia-ml.so.1
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVLS: cuMulticast is not supported on CUDA or disabled by user
+
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVLS: cuMulticast is not supported on CUDA or disabled by user
+
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVLS: cuMulticast is not supported on CUDA or disabled by user
+
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVLS: cuMulticast is not supported on CUDA or disabled by user
+
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO ALGO: FCOLLECT_ALGO set to 0
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO ALGO: BCAST_ALGO set to 0
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO ALGO: REDUCE_ALGO set to 0 (0 -> 1)
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO ALGO: REDMAXLOC_ALGO set to 1
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO ALGO: REDUCESCATTER_ALGO set to 0
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO team psync mem req 512000 bytes, team mem total req 131072904 bytes, max teams 32
+
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO ALGO: FCOLLECT_ALGO set to 0
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO ALGO: BCAST_ALGO set to 0
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO ALGO: REDUCE_ALGO set to 0 (0 -> 1)
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO ALGO: REDMAXLOC_ALGO set to 1
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO ALGO: REDUCESCATTER_ALGO set to 0
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO team psync mem req 512000 bytes, team mem total req 131072904 bytes, max teams 32
+
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO ALGO: FCOLLECT_ALGO set to 0
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO ALGO: BCAST_ALGO set to 0
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO ALGO: REDUCE_ALGO set to 0 (0 -> 1)
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO ALGO: REDMAXLOC_ALGO set to 1
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO ALGO: REDUCESCATTER_ALGO set to 0
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO team psync mem req 512000 bytes, team mem total req 131072904 bytes, max teams 32
+
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO ALGO: FCOLLECT_ALGO set to 0
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO ALGO: BCAST_ALGO set to 0
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO ALGO: REDUCE_ALGO set to 0 (0 -> 1)
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO ALGO: REDMAXLOC_ALGO set to 1
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO ALGO: REDUCESCATTER_ALGO set to 0
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO team psync mem req 512000 bytes, team mem total req 131072904 bytes, max teams 32
+
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO IBGDA Disabled by the environment.
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO IBGDA Disabled by the environment.
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO IBGDA Disabled by the environment.
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO IBGDA Disabled by the environment.
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] status 0 cudaErrorInvalidValue 1 cudaErrorInvalidSymbol 13 cudaErrorInvalidMemcpyDirection 21 cudaErrorNoKernelImageForDevice 209
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] status 0 cudaErrorInvalidValue 1 cudaErrorInvalidSymbol 13 cudaErrorInvalidMemcpyDirection 21 cudaErrorNoKernelImageForDevice 209
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] status 0 cudaErrorInvalidValue 1 cudaErrorInvalidSymbol 13 cudaErrorInvalidMemcpyDirection 21 cudaErrorNoKernelImageForDevice 209
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] status 0 cudaErrorInvalidValue 1 cudaErrorInvalidSymbol 13 cudaErrorInvalidMemcpyDirection 21 cudaErrorNoKernelImageForDevice 209
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO P2P list: 0 1 2 3 
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO P2P list: 0 1 2 3 
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO P2P list: 0 1 2 3 
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO P2P list: 0 1 2 3 
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEM_TEAM_SHARED: start=0, stride=1, size=4
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEM_TEAM_SHARED: start=0, stride=1, size=4
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEM_TEAM_SHARED: start=0, stride=1, size=4
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEM_TEAM_SHARED: start=0, stride=1, size=4
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEMX_TEAM_NODE: start=0, stride=1, size=4
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEMX_TEAM_SAME_MYPE_NODE: start=3, stride=4, size=1
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEMI_TEAM_SAME_GPU: start=3, stride=1, size=1
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEMX_TEAM_NODE: start=0, stride=1, size=4
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEMX_TEAM_SAME_MYPE_NODE: start=1, stride=4, size=1
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEMI_TEAM_SAME_GPU: start=1, stride=1, size=1
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEMX_TEAM_NODE: start=0, stride=1, size=4
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEMX_TEAM_SAME_MYPE_NODE: start=0, stride=4, size=1
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEMI_TEAM_SAME_GPU: start=0, stride=1, size=1
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEMX_TEAM_NODE: start=0, stride=1, size=4
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEMX_TEAM_SAME_MYPE_NODE: start=2, stride=4, size=1
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEMI_TEAM_SAME_GPU: start=2, stride=1, size=1
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO NVSHMEMI_TEAM_GPU_LEADERS: start=0, stride=1, size=4
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO NVSHMEMI_TEAM_GPU_LEADERS: start=0, stride=1, size=4
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO NVSHMEMI_TEAM_GPU_LEADERS: start=0, stride=1, size=4
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO NVSHMEMI_TEAM_GPU_LEADERS: start=0, stride=1, size=4
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle fromhandle 0x84000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle tobuf 0x2740000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle fromhandle 0x85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle tobuf 0x2760000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle fromhandle 0x86000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle tobuf 0x2760000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle fromhandle 0x84000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle tobuf 0x2740000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle fromhandle 0x86000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle tobuf 0x4760000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle fromhandle 0x84000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle tobuf 0x4760000000
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle fromhandle 0x85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle tobuf 0x4740000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle fromhandle 0x85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle tobuf 0x4740000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle fromhandle 0x84000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3993:3993 [1] NVSHMEM INFO [1] cuIpcOpenMemHandle tobuf 0x6760000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle fromhandle 0x85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3994:3994 [2] NVSHMEM INFO [2] cuIpcOpenMemHandle tobuf 0x6760000000
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle fromhandle 0x86000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3995:3995 [3] NVSHMEM INFO [3] cuIpcOpenMemHandle tobuf 0x6740000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle fromhandle 0x86000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+56f5f58d7ada:3992:3992 [0] NVSHMEM INFO [0] cuIpcOpenMemHandle tobuf 0x6740000000
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 0
+
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 1
+
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 2
+
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 3
+
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 4
+
+
+56f5f58d7ada:3993:3993 [1] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 5
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 0
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 1
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 2
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 3
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 4
+
+
+56f5f58d7ada:3994:3994 [2] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 5
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 0
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 1
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 2
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 3
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 4
+
+
+56f5f58d7ada:3995:3995 [3] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 5
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 0
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 1
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 2
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 3
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 4
+
+
+56f5f58d7ada:3992:3992 [0] /dvs/p4/build/sw/rel/gpgpu/toolkit/r12.8/main_nvshmem/src/host/team/team_internal.cpp:759 NVSHMEM WARN Skipping NVLINK SHARP resource initialized for team ID: 5
+
+AG + Matmul: 0.186392 (s) 23.042668 (GFlops)
+AG + Matmul: 0.000131 (s) 32744.267201 (GFlops)
+AG + Matmul: 0.000078 (s) 55234.343240 (GFlops)
+AG + Matmul: 0.000136 (s) 31592.953842 (GFlops)
+AG + Matmul: 0.000083 (s) 51960.697041 (GFlops)
+AG + Matmul: 0.000086 (s) 50217.090263 (GFlops)
+AG + Matmul: 0.000082 (s) 52551.968677 (GFlops)
+AG + Matmul: 0.000076 (s) 56767.434092 (GFlops)
+AG + Matmul: 0.000112 (s) 38448.162137 (GFlops)
+AG + Matmul: 0.000107 (s) 40279.919871 (GFlops)
+AG + Matmul: 0.000080 (s) 54012.516613 (GFlops)
+AG + Matmul: 0.000133 (s) 32371.603940 (GFlops)
+AG + Matmul: 0.000082 (s) 52080.410535 (GFlops)
+AG + Matmul: 0.000100 (s) 42804.992087 (GFlops)
+AG + Matmul: 0.000079 (s) 54547.579263 (GFlops)
+AG + Matmul: 0.000089 (s) 48123.961276 (GFlops)
+AG + Matmul: 0.000089 (s) 48384.184571 (GFlops)
+AG + Matmul: 0.000082 (s) 52346.369803 (GFlops)
+AG + Matmul: 0.000082 (s) 52519.195588 (GFlops)
+AG + Matmul: 0.000087 (s) 49097.685087 (GFlops)
+AG + Matmul: 0.000090 (s) 47632.944016 (GFlops)
+AG + Matmul: 0.000079 (s) 54319.918248 (GFlops)
+AG + Matmul: 0.000086 (s) 50187.750310 (GFlops)
+AG + Matmul: 0.000096 (s) 44623.964093 (GFlops)
+AG + Matmul: 0.000080 (s) 53394.754917 (GFlops)
+AG + Matmul: 0.000077 (s) 56092.769868 (GFlops)
+AG + Matmul: 0.000085 (s) 50583.180770 (GFlops)
+AG + Matmul: 0.000083 (s) 51710.458908 (GFlops)
+AG + Matmul: 0.000083 (s) 51810.264373 (GFlops)
+AG + Matmul: 0.000081 (s) 53064.905187 (GFlops)
+AG + Matmul: 0.000081 (s) 53328.457324 (GFlops)
+AG + Matmul: 0.000094 (s) 45469.598086 (GFlops)
+AG + Matmul: 0.000083 (s) 51480.507929 (GFlops)
+AG + Matmul: 0.000092 (s) 46624.119845 (GFlops)
+AG + Matmul: 0.000082 (s) 52609.259006 (GFlops)
+AG + Matmul: 0.000091 (s) 47011.977977 (GFlops)
+AG + Matmul: 0.000083 (s) 51709.836333 (GFlops)
+AG + Matmul: 0.000092 (s) 46807.551342 (GFlops)
+AG + Matmul: 0.000084 (s) 51046.093916 (GFlops)
+AG + Matmul: 0.000075 (s) 57613.447658 (GFlops)
+AG + Matmul: 0.000081 (s) 53117.407010 (GFlops)
+AG + Matmul: 0.000089 (s) 48307.995861 (GFlops)
+AG + Matmul: 0.000082 (s) 52219.082250 (GFlops)
+AG + Matmul: 0.000087 (s) 49142.064509 (GFlops)
+AG + Matmul: 0.000083 (s) 51935.564294 (GFlops)
+AG + Matmul: 0.000096 (s) 44758.824652 (GFlops)
+AG + Matmul: 0.000082 (s) 52366.154942 (GFlops)
+AG + Matmul: 0.000084 (s) 51070.980237 (GFlops)
+AG + Matmul: 0.000084 (s) 51259.933356 (GFlops)
+AG + Matmul: 0.000112 (s) 38348.607082 (GFlops)
+Matmul + RS: 0.001165 (s) 3686.363438 (GFlops)
+Matmul + RS: 0.000180 (s) 23918.466622 (GFlops)
+Matmul + RS: 0.000191 (s) 22501.347975 (GFlops)
+Matmul + RS: 0.000182 (s) 23583.560546 (GFlops)
+Matmul + RS: 0.000184 (s) 23345.258599 (GFlops)
+Matmul + RS: 0.000181 (s) 23719.141664 (GFlops)
+Matmul + RS: 0.000180 (s) 23922.596560 (GFlops)
+Matmul + RS: 0.000194 (s) 22154.309141 (GFlops)
+Matmul + RS: 0.000179 (s) 24040.431309 (GFlops)
+Matmul + RS: 0.000178 (s) 24125.505803 (GFlops)
+Matmul + RS: 0.000189 (s) 22690.359012 (GFlops)
+Matmul + RS: 0.000183 (s) 23477.977522 (GFlops)
+Matmul + RS: 0.000180 (s) 23846.886256 (GFlops)
+Matmul + RS: 0.000192 (s) 22365.427816 (GFlops)
+Matmul + RS: 0.000183 (s) 23481.828349 (GFlops)
+Matmul + RS: 0.000199 (s) 21532.327795 (GFlops)
+Matmul + RS: 0.000190 (s) 22568.743476 (GFlops)
+Matmul + RS: 0.000186 (s) 23063.198995 (GFlops)
+Matmul + RS: 0.000186 (s) 23048.347139 (GFlops)
+Matmul + RS: 0.000176 (s) 24353.961850 (GFlops)
+Matmul + RS: 0.000173 (s) 24758.279508 (GFlops)
+Matmul + RS: 0.000181 (s) 23712.593973 (GFlops)
+Matmul + RS: 0.000177 (s) 24331.886605 (GFlops)
+Matmul + RS: 0.000191 (s) 22493.099075 (GFlops)
+Matmul + RS: 0.000197 (s) 21780.194811 (GFlops)
+Matmul + RS: 0.000182 (s) 23543.613827 (GFlops)
+Matmul + RS: 0.000186 (s) 23054.533087 (GFlops)
+Matmul + RS: 0.000180 (s) 23891.989008 (GFlops)
+Matmul + RS: 0.000179 (s) 23981.369187 (GFlops)
+Matmul + RS: 0.000184 (s) 23333.843817 (GFlops)
+Matmul + RS: 0.000186 (s) 23057.008396 (GFlops)
+Matmul + RS: 0.000186 (s) 23101.655027 (GFlops)
+Matmul + RS: 0.000185 (s) 23220.306954 (GFlops)
+Matmul + RS: 0.000207 (s) 20771.111231 (GFlops)
+Matmul + RS: 0.000186 (s) 23096.685754 (GFlops)
+Matmul + RS: 0.000181 (s) 23683.827027 (GFlops)
+Matmul + RS: 0.000188 (s) 22850.918811 (GFlops)
+Matmul + RS: 0.000183 (s) 23499.815589 (GFlops)
+Matmul + RS: 0.000188 (s) 22864.299990 (GFlops)
+Matmul + RS: 0.000185 (s) 23269.370319 (GFlops)
+Matmul + RS: 0.000188 (s) 22853.350587 (GFlops)
+Matmul + RS: 0.000222 (s) 19315.811635 (GFlops)
+Matmul + RS: 0.000179 (s) 24010.863928 (GFlops)
+Matmul + RS: 0.000184 (s) 23281.984085 (GFlops)
+Matmul + RS: 0.000224 (s) 19191.439061 (GFlops)
+Matmul + RS: 0.000177 (s) 24302.973507 (GFlops)
+Matmul + RS: 0.000203 (s) 21148.514895 (GFlops)
+Matmul + RS: 0.000187 (s) 22998.855650 (GFlops)
+Matmul + RS: 0.000178 (s) 24137.572826 (GFlops)
+Matmul + RS: 0.000178 (s) 24082.218250 (GFlops)
+[SUCCEEDED]

@@ -52,6 +52,14 @@ int main(int argc, char* argv[])
     const cublasOperation_t transA = CUBLAS_OP_T;
     const cublasOperation_t transB = CUBLAS_OP_N;
 
+    Options opts = { 
+        .m = 1024,
+        .n = 1024,
+        .k = 1024
+    };
+
+    opts.parse(argc, argv);
+
     MPI_Init(nullptr, nullptr);
 
     int rank, nranks;
@@ -105,11 +113,16 @@ int main(int argc, char* argv[])
 
     const bool ta = (transA != CUBLAS_OP_N);
 
+
+    const int64_t m = opts.m * nranks;
+    const int64_t n = opts.n * nranks;
+    const int64_t k = opts.k;
+
     // AG + Matmul
     {
-        const int64_t m = 64 * nranks;
-        const int64_t n = 64 * nranks;
-        const int64_t k = 64;
+        // const int64_t m = 64 * nranks;
+        // const int64_t n = 64 * nranks;
+        // const int64_t k = 64;
 
         const int64_t loc_a_m = ta ? k : m / nranks;
         const int64_t loc_a_n = ta ? m / nranks : k;
@@ -212,46 +225,52 @@ int main(int argc, char* argv[])
 
         CUDA_CHECK(cudaStreamSynchronize(stream));
 
-        const double begin = MPI_Wtime();
-
-        CUBLASMP_CHECK(cublasMpMatmul(
-            handle,
-            matmulDesc,
-            m,
-            n,
-            k,
-            &alpha,
-            d_X0,
-            1,
-            1,
-            descA,
-            d_W0,
-            1,
-            1,
-            descB,
-            &beta,
-            nullptr,
-            1,
-            1,
-            descC,
-            d_X1,
-            1,
-            1,
-            descC,
-            d_work,
-            workspaceInBytesOnDevice,
-            h_work.data(),
-            workspaceInBytesOnHost));
-
-        CUDA_CHECK(cudaStreamSynchronize(stream));
-
-        const double end = MPI_Wtime();
-
-        if (rank == 0)
+        for (int iteration=0; iteration<50; iteration++)
         {
-            printf("AG + Matmul: %lf (s) %lf (GFlops)\n", end - begin, (2 * m * n * k * 1e-9) / (end - begin));
+            const double begin = MPI_Wtime();
+
+                    CUBLASMP_CHECK(cublasMpMatmul(
+                        handle,
+                        matmulDesc,
+                        m,
+                        n,
+                        k,
+                        &alpha,
+                        d_X0,
+                        1,
+                        1,
+                        descA,
+                        d_W0,
+                        1,
+                        1,
+                        descB,
+                        &beta,
+                        nullptr,
+                        1,
+                        1,
+                        descC,
+                        d_X1,
+                        1,
+                        1,
+                        descC,
+                        d_work,
+                        workspaceInBytesOnDevice,
+                        h_work.data(),
+                        workspaceInBytesOnHost));
+
+                    CUDA_CHECK(cudaStreamSynchronize(stream));
+
+                    const double end = MPI_Wtime();
+
+                    if (rank == 0)
+                    {
+                        printf("AG + Matmul: %lf (s) %lf (GFlops)\n", end - begin, (2 * m * n * k * 1e-9) / (end - begin));
+                    }
+
+
         }
 
+      
         CUBLASMP_CHECK(cublasMpMatmulDescriptorDestroy(matmulDesc));
 
         CUBLASMP_CHECK(cublasMpMatrixDescriptorDestroy(descA));
@@ -265,9 +284,9 @@ int main(int argc, char* argv[])
 
     // Matmul + RS
     {
-        const int64_t m = 64;
-        const int64_t n = 64 * nranks;
-        const int64_t k = 64 * nranks;
+        // const int64_t m = 64;
+        // const int64_t n = 64 * nranks;
+        // const int64_t k = 64 * nranks;
 
         const int64_t loc_a_m = ta ? k / nranks : m;
         const int64_t loc_a_n = ta ? m : k / nranks;
@@ -362,46 +381,52 @@ int main(int argc, char* argv[])
         std::vector<int8_t> h_work(workspaceInBytesOnHost);
 
         CUDA_CHECK(cudaStreamSynchronize(stream));
-
-        const double begin = MPI_Wtime();
-
-        CUBLASMP_CHECK(cublasMpMatmul(
-            handle,
-            matmulDesc,
-            m,
-            n,
-            k,
-            &alpha,
-            d_W1,
-            1,
-            1,
-            descA,
-            d_X1,
-            1,
-            1,
-            descB,
-            &beta,
-            nullptr,
-            1,
-            1,
-            descC,
-            d_X2,
-            1,
-            1,
-            descC,
-            d_work,
-            workspaceInBytesOnDevice,
-            h_work.data(),
-            workspaceInBytesOnHost));
-
-        CUDA_CHECK(cudaStreamSynchronize(stream));
-
-        const double end = MPI_Wtime();
-
-        if (rank == 0)
+        
+        for (int iteration=0; iteration<50; iteration++)
         {
-            printf("Matmul + RS: %lf (s) %lf (GFlops)\n", end - begin, (2 * m * n * k * 1e-9) / (end - begin));
+
+            const double begin = MPI_Wtime();
+
+            CUBLASMP_CHECK(cublasMpMatmul(
+                handle,
+                matmulDesc,
+                m,
+                n,
+                k,
+                &alpha,
+                d_W1,
+                1,
+                1,
+                descA,
+                d_X1,
+                1,
+                1,
+                descB,
+                &beta,
+                nullptr,
+                1,
+                1,
+                descC,
+                d_X2,
+                1,
+                1,
+                descC,
+                d_work,
+                workspaceInBytesOnDevice,
+                h_work.data(),
+                workspaceInBytesOnHost));
+
+            CUDA_CHECK(cudaStreamSynchronize(stream));
+
+            const double end = MPI_Wtime();
+
+            if (rank == 0)
+            {
+                printf("Matmul + RS: %lf (s) %lf (GFlops)\n", end - begin, (2 * m * n * k * 1e-9) / (end - begin));
+            }
+            
         }
+
 
         CUBLASMP_CHECK(cublasMpMatmulDescriptorDestroy(matmulDesc));
 
