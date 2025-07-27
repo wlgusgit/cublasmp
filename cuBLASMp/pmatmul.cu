@@ -114,15 +114,15 @@ int main(int argc, char* argv[])
     const bool ta = (transA != CUBLAS_OP_N);
 
 
-    const int64_t m = opts.m * nranks;
-    const int64_t n = opts.n * nranks;
-    const int64_t k = opts.k;
-
     // AG + Matmul
     {
         // const int64_t m = 64 * nranks;
         // const int64_t n = 64 * nranks;
         // const int64_t k = 64;
+
+        const int64_t m = opts.m * nranks;
+        const int64_t n = opts.n * nranks;
+        const int64_t k = opts.k;
 
         const int64_t loc_a_m = ta ? k : m / nranks;
         const int64_t loc_a_n = ta ? m / nranks : k;
@@ -287,6 +287,10 @@ int main(int argc, char* argv[])
         // const int64_t m = 64;
         // const int64_t n = 64 * nranks;
         // const int64_t k = 64 * nranks;
+        
+        const int64_t m = opts.m;
+        const int64_t n = opts.n * nranks;
+        const int64_t k = opts.k * nranks;
 
         const int64_t loc_a_m = ta ? k / nranks : m;
         const int64_t loc_a_n = ta ? m : k / nranks;
